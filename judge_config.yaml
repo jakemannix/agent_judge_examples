@@ -1,0 +1,9 @@
+# LLM judge configuration used during the pilot
+judge_model: judge-v1
+rubric: |
+  PASS if the agent fully completed the user's request in this transcript.
+  FAIL otherwise. Judge only what is in the transcript.
+max_input_tokens: 32000
+overflow_policy: keep_head      # transcripts longer than max_input_tokens are cut; the first 32000 tokens are sent
+temperature: 0.7
+retry_on_timeout: 2             # the pipeline re-submits a transcript if grading times out
